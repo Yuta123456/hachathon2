@@ -1,6 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
-import { InputPlobremPage } from '../input-plobrem/input-plobrem.page'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -27,12 +26,17 @@ export class HomePage implements OnInit {
      {name: "Xor Sum 4",
      url:"https://atcoder.jp/contests/abc147/tasks/abc147_d",
      memo:"結構難しかった"}
-
   ];
+  //localStorage.plobrems = JSON.stringify(this.plobrems)
   goToNextPage(){
     this.router.navigateByUrl('/input-plobrem');
   }
   constructor(private router:Router,) { }
   ngOnInit() {
+  }
+  ionViewWillEnter(){
+    if ('plobrems' in localStorage) {
+      this.plobrems = JSON.parse(localStorage.plobrems)
+    } 
   }
 }
