@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Plobrems
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<!-- Textarea in an item with a floating label -->
+<ion-item>
+  <ion-label position="floating" required="true">Probrem Name</ion-label>
+  <ion-input [(ngModel)]="resist_name" name="resist_name"></ion-input>
+</ion-item>
+
+<!-- Textarea that clears the value on edit -->
+<ion-item>
+  <ion-label position="floating">URL</ion-label>
+  <ion-input [(ngModel)]="resist_url" name="resist_url"></ion-input>
+</ion-item>
+
+<!-- Textarea with custom number of rows and cols -->
+<ion-item>
+  <ion-label position="floating">Memo</ion-label>
+  <ion-input [(ngModel)]="resist_memo" name="resist_memo"></ion-input>
+</ion-item>
+<ion-button expand="block" type="submit" (click)="goToBackPage()">Resister Probrem</ion-button>
+</ion-content>
