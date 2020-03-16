@@ -20,11 +20,9 @@ export class InputPlobremPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter(){
-    /*
     if ('plobrems' in localStorage) {
       this.plobrems = JSON.parse(localStorage.plobrems)
     }
-    */
   }
   resist_name:string;
   resist_url:string;

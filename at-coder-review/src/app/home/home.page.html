@@ -13,8 +13,8 @@
     </ion-fab-button>
   </ion-fab>
   <div>
-    <ion-item *ngFor="let t of today" button=false>
-      <ion-checkbox slot="start" ></ion-checkbox>
+    <ion-item *ngFor="let t of today" button=false [color]="plobremColor(t)">
+      <ion-checkbox slot="start" [(ngModel)]="t.checked" (ionChange)="func(t)"></ion-checkbox>
       <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
         
       <!--checked == trueだった場合、薄緑にしたい-->
