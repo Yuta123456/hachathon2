@@ -9,11 +9,13 @@ export class InputPlobremPage implements OnInit {
   plobrems:{
     name: string,
     url: string,
-    memo:string
+    memo:string,
+    priority:number
   }[] = []
   constructor() { }
   goToBackPage(){
     history.back();
+    
   }
   ngOnInit() {
   }
@@ -25,15 +27,17 @@ export class InputPlobremPage implements OnInit {
   resist_name:string;
   resist_url:string;
   resist_memo:string;
+  resist_priority:number;
   resister_plobrem() {
     var resist = {
       name: this.resist_name,
       url: this.resist_url,
-      memo: this.resist_memo
+      memo: this.resist_memo,
+      priority: this.priority
     }
     this.plobrems.push(resist);
     localStorage.plobrems = JSON.stringify(this.plobrems)
-    resist = {name:'',url:'',memo:''};
+    resist = {name:'',url:'',memo:'',priority:null};
     this.goToBackPage();
   }
 }
