@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Today Problems
@@ -6,18 +6,19 @@
   </ion-toolbar>
 </ion-header>
 <!--toggleで、解いたか解いてないのかを管理できそう-->
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Today Problems</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="false">
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button (click)="goToNextPage()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <div>
-    <ion-item *ngFor="let t of plobrems" button=true>
+    <ion-item *ngFor="let t of plobrems" button=false>
       <ion-checkbox slot="start" checked="false"></ion-checkbox>
+      <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
+        
       <!--checked == trueだった場合、薄緑にしたい-->
       <ul>
-        <ion-button class="solve_button" href="{{t.url}}">solve</ion-button>
         <li>
           <span class="problem_property">Name :</span>
           <span class="problem_text">{{t.name}}</span>
@@ -36,5 +37,8 @@
       
     </ion-item>
   </div>
-    <ion-icon name="add-circle-outline" (click)="goToNextPage()" id="input-button"></ion-icon>
+  <!--
+    <ion-fab name="add-circle-outline" " id="input-button"></ion-icon>
+      -->
+      
 </ion-content>

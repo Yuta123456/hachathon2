@@ -34,7 +34,6 @@ export class InputPlobremPage implements OnInit {
     this.plobrems.push(resist);
     localStorage.plobrems = JSON.stringify(this.plobrems)
     resist = {name:'',url:'',memo:''};
-    //なぜか戻らない。
     this.goToBackPage();
   }
 }
