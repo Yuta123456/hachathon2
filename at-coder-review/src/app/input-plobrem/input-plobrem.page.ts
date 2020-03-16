@@ -33,7 +33,7 @@ export class InputPlobremPage implements OnInit {
       name: this.resist_name,
       url: this.resist_url,
       memo: this.resist_memo,
-      priority: this.priority
+      priority: this.resist_priority
     }
     this.plobrems.push(resist);
     localStorage.plobrems = JSON.stringify(this.plobrems)
