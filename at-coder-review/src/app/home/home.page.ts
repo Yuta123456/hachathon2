@@ -6,27 +6,19 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  plobrems:{
+  problems:{
     name: string,
     url: string,
-    memo:string
+    memo:string,
+    priority:number
   }[] = [
-    {name: "String Formation",
-     url:"https://atcoder.jp/contests/abc158/tasks/abc158_d",
-     memo:"結構難しかった"},
-
-     {name: "Dice in Line",
-     url:"https://atcoder.jp/contests/abc154/tasks/abc154_d",
-     memo:"結構難しかった"},
-
-     {name: "Semi Common Multiple",
-     url:"https://atcoder.jp/contests/abc150/tasks/abc150_d",
-     memo:"結構難しかった"},
-
-     {name: "Xor Sum 4",
-     url:"https://atcoder.jp/contests/abc147/tasks/abc147_d",
-     memo:"結構難しかった"}
   ];
+  today:{
+    name:string,
+    url:string,
+    memo:string,
+    priority:number
+  }[] = []
   //localStorage.plobrems = JSON.stringify(this.plobrems)
   goToNextPage(){
     this.router.navigateByUrl('/input-plobrem');
@@ -36,7 +28,15 @@ export class HomePage implements OnInit {
   }
   ionViewWillEnter(){
     if ('plobrems' in localStorage) {
-      this.plobrems = JSON.parse(localStorage.plobrems)
-    } 
+      this.problems = JSON.parse(localStorage.plobrems)
+    }
+    if ('today' in localStorage) {
+      this.today = JSON.parse(localStorage.today);
+    }else{
+      for (let i = 0;i < 5 && i < this.problems.length && this.today.length < 5;i++){
+        this.today.push(this.problems[i])
+      }
+    }
+    this.today.sort((a,b) => b.priority - a.priority)
   }
 }

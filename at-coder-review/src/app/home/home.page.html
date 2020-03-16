@@ -13,8 +13,8 @@
     </ion-fab-button>
   </ion-fab>
   <div>
-    <ion-item *ngFor="let t of plobrems" button=false>
-      <ion-checkbox slot="start" checked="false"></ion-checkbox>
+    <ion-item *ngFor="let t of today" button=false>
+      <ion-checkbox slot="start" ></ion-checkbox>
       <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
         
       <!--checked == trueだった場合、薄緑にしたい-->
@@ -32,6 +32,12 @@
           <span class="problem_property">memo:</span>
           <!--todo-->
           <span class="problem_text">{{t.memo}}</span>
+        </li>
+          <span class="problem_property">priority:</span>
+          <!--todo-->
+          <span class="problem_text">{{t.priority}}</span>
+        <li>
+
         </li>
       </ul>
       

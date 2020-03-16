@@ -20,9 +20,11 @@ export class InputPlobremPage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter(){
+    /*
     if ('plobrems' in localStorage) {
       this.plobrems = JSON.parse(localStorage.plobrems)
-    } 
+    }
+    */
   }
   resist_name:string;
   resist_url:string;
@@ -36,6 +38,7 @@ export class InputPlobremPage implements OnInit {
       priority: this.resist_priority
     }
     this.plobrems.push(resist);
+    this.plobrems.sort((a,b) => b.priority - a.priority)
     localStorage.plobrems = JSON.stringify(this.plobrems)
     resist = {name:'',url:'',memo:'',priority:null};
     this.goToBackPage();
