@@ -3,12 +3,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'input-plobrem', loadChildren: './input-plobrem/input-plobrem.module#InputPlobremPageModule' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  {
-    path: 'input-plobrem',
-    loadChildren: () => import('./input-plobrem/input-plobrem.module').then( m => m.InputPlobremPageModule)
+  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},  {
+    path: 'problem-list',
+    loadChildren: () => import('./problem-list/problem-list.module').then( m => m.ProblemListPageModule)
   },
+  {
+    path: 'input-problem',
+    loadChildren: () => import('./input-problem/input-problem.module').then( m => m.InputProblemPageModule)
+  },
+
+
 ];
 
 @NgModule({

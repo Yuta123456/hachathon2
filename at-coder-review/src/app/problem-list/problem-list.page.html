@@ -1,26 +1,13 @@
-
 <ion-header>
   <ion-toolbar>
-    <ion-button ion-button menuToggle (click)="goToProblemList()">
-      <ion-icon name="menu" ></ion-icon>
-    </ion-button>
-    <ion-title id="title">
-      Today Problems
-    </ion-title>
+    <ion-title>problem-list</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!--toggleで、解いたか解いてないのかを管理できそう-->
-<ion-content [fullscreen]="false">
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button (click)="goToNextPage()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  
+<ion-content>
   <div>
-    <ion-item *ngFor="let t of today" button=false [color]="ProblemColor(t)">
-      <ion-checkbox slot="start" [(ngModel)]="t.checked" (ionChange)="func(t)"></ion-checkbox>
+    <ion-item *ngFor="let t of Problems" button=false>
+      <ion-checkbox slot="start" [(ngModel)]="t.checked"></ion-checkbox>
       <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
         
       <!--checked == trueだった場合、薄緑にしたい-->
@@ -43,8 +30,4 @@
       
     </ion-item>
   </div>
-  <!--
-    <ion-fab name="add-circle-outline" " id="input-button"></ion-icon>
-      -->
-      
 </ion-content>

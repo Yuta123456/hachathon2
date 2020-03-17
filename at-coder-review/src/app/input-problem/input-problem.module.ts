@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InputPlobremPageRoutingModule } from './input-plobrem-routing.module';
+import { InputProblemPageRoutingModule } from './input-problem-routing.module';
 
-import { InputPlobremPage } from './input-plobrem.page';
+import { InputProblemPage } from './input-problem.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InputPlobremPageRoutingModule
+    InputProblemPageRoutingModule
   ],
-  declarations: [InputPlobremPage]
+  declarations: [InputProblemPage]
 })
-export class InputPlobremPageModule {}
+export class InputProblemPageModule {}
