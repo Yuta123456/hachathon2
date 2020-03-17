@@ -11,7 +11,8 @@ export class InputProblemPage implements OnInit {
     url: string,
     memo:string,
     priority:number,
-    checked:boolean
+    checked:boolean,
+    message:string
   }[] = []
   constructor() { }
   goToBackPage(){
@@ -35,12 +36,13 @@ export class InputProblemPage implements OnInit {
       url: this.resist_url,
       memo: this.resist_memo,
       priority: this.resist_priority,
-      checked:false
+      checked:false,
+      message:'solve'
     }
     this.Problems.push(resist);
     this.Problems.sort((a,b) => b.priority - a.priority)
     localStorage.Problems = JSON.stringify(this.Problems)
-    resist = {name:'',url:'',memo:'',priority:null,checked:false};
+    resist = {name:'',url:'',memo:'',priority:null,checked:false,message:''};
     this.goToBackPage();
   }
 }

@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-button ion-button menuToggle (click)="goToProblemList()">
@@ -20,8 +19,8 @@
   
   <div>
     <ion-item *ngFor="let t of today" button=false [color]="ProblemColor(t)">
-      <ion-checkbox slot="start" [(ngModel)]="t.checked" (ionChange)="func(t)"></ion-checkbox>
-      <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
+      <ion-checkbox slot="start" [(ngModel)]="t.checked" (ionChange)="ProblemMessage(t)"></ion-checkbox>
+      <ion-button class="solve_button" href="{{t.url}}" size="large" slot="end" fill="solid" shape="round" >{{t.message}}</ion-button>
         
       <!--checked == trueだった場合、薄緑にしたい-->
       <ul>
@@ -43,8 +42,5 @@
       
     </ion-item>
   </div>
-  <!--
-    <ion-fab name="add-circle-outline" " id="input-button"></ion-icon>
-      -->
       
 </ion-content>
