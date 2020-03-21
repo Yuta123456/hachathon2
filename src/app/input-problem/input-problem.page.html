@@ -6,28 +6,28 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-<form (submit)="resister_Problem()" #f="ngForm">
-<!-- Textarea in an item with a floating label -->
-<ion-item>
-  <ion-label position="floating" required="true">Probrem Name</ion-label>
-  <ion-input [(ngModel)]="resist_name" name="resist_name"></ion-input>
-</ion-item>
+  <form (submit)="resister_Problem()" #f="ngForm">
+    <!-- Textarea in an item with a floating label -->
+    <ion-item>
+      <ion-label position="floating" required="true">Probrem Name</ion-label>
+      <ion-input [(ngModel)]="resist_name" name="resist_name"></ion-input>
+    </ion-item>
 
-<!-- Textarea that clears the value on edit -->
-<ion-item>
-  <ion-label position="floating">URL</ion-label>
-  <ion-input [(ngModel)]="resist_url" name="resist_url" required text="url"></ion-input>
-</ion-item>
+    <!-- Textarea that clears the value on edit -->
+    <ion-item>
+      <ion-label position="floating">URL</ion-label>
+      <ion-input [(ngModel)]="resist_url" name="resist_url" required text="url"></ion-input>
+    </ion-item>
 
-<!-- Textarea with custom number of rows and cols -->
-<ion-item>
-  <ion-label position="floating">Memo</ion-label>
-  <ion-input [(ngModel)]="resist_memo" name="resist_memo"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label position="floating">Priority</ion-label>
-  <ion-input [(ngModel)]="resist_priority" name="resist_priority" type="number" min="1" max="10" required></ion-input>
-</ion-item>
-<ion-button expand="block" type="submit" [disabled]="!f.form.valid || resist_priority > 10">Resister Probrem</ion-button>
-</form>
+    <!-- Textarea with custom number of rows and cols -->
+    <ion-item>
+      <ion-label position="floating">Memo</ion-label>
+      <ion-input [(ngModel)]="resist_memo" name="resist_memo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">last_AC</ion-label>
+      <ion-input [(ngModel)]="resist_last_AC" name="resist_last_AC" type="number" min="1" max="10"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="!f.form.valid">Resister Probrem</ion-button>
+  </form>
 </ion-content>

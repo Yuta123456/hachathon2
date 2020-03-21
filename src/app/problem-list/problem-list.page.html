@@ -7,36 +7,11 @@
 <ion-content>
   <div>
     <ion-toolbar>
-      <ion-title>today problem</ion-title>
-    </ion-toolbar>
-    <ion-item *ngFor="let t of today" button=false>
-      <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round">solve</ion-button>
-        
-      <!--checked == trueだった場合、薄緑にしたい-->
-      <ul>
-        <li>
-          <span class="problem_property">Name :</span>
-          <span class="problem_text">{{t.name}}</span>
-        </li>
-        <li>
-          <span class="problem_property">memo:</span>
-          <!--todo-->
-          <span class="problem_text">{{t.memo}}</span>
-        </li>
-        <li>
-        <span class="problem_property">priority:</span>
-        <!--todo-->
-        <span class="problem_text">{{t.priority}}</span>
-        </li>
-      </ul>
-      
-    </ion-item>
-    <ion-toolbar>
       <ion-title>All problem</ion-title>
     </ion-toolbar>
     <ion-item *ngFor="let t of Problems" button=false>
       <!--ページを開くときに、新しいタブを開くようにしたい。todo-->
-      <ion-button class="solve_button" href="{{t.url}}" slot="end" fill="outline" shape="round" target="_blank">solve</ion-button>
+      <ion-button class="solve_button" href="{{t.url}}" size="large" slot="end" fill="solid" shape="round" >solve</ion-button>
         
       <ul>
         <li>
@@ -49,12 +24,11 @@
           <span class="problem_text">{{t.memo}}</span>
         </li>
         <li>
-        <span class="problem_property">priority:</span>
+        <span class="problem_property">last_AC:</span>
         <!--todo-->
-        <span class="problem_text">{{t.priority}}</span>
+        <span class="problem_text">{{t.last_AC}}</span>
         </li>
-      </ul>
-      
+      </ul>    
     </ion-item>
   </div>
 </ion-content>

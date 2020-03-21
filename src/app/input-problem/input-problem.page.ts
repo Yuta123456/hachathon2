@@ -10,7 +10,7 @@ export class InputProblemPage implements OnInit {
     name: string,
     url: string,
     memo:string,
-    priority:number,
+    last_AC:number,
     checked:boolean,
     message:string
   }[] = []
@@ -28,21 +28,42 @@ export class InputProblemPage implements OnInit {
   resist_name:string;
   resist_url:string;
   resist_memo:string;
-  resist_priority:number;
+  resist_last_AC:number;
   resist_checked:boolean;
   resister_Problem() {
     var resist = {
       name: this.resist_name,
       url: this.resist_url,
       memo: this.resist_memo,
-      priority: this.resist_priority,
+      last_AC:this.resist_last_AC,
       checked:false,
       message:'solve'
     }
     this.Problems.push(resist);
-    this.Problems.sort((a,b) => b.priority - a.priority)
+    this.Problems.sort((a,b) => a.last_AC - b.last_AC)
     localStorage.Problems = JSON.stringify(this.Problems)
-    resist = {name:'',url:'',memo:'',priority:null,checked:false,message:''};
+    resist = {name:'',url:'',memo:'',last_AC:null,checked:false,message:''};
     this.goToBackPage();
   }
+}
+export class MyComponent {
+  customYearValues = [2020, 2016, 2008, 2004, 2000, 1996];
+  customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u00f8r'];
+  customPickerOptions: any;
+
+  constructor() {
+    this.customPickerOptions = {
+      buttons: [{
+        text: 'Save',
+        handler: () => console.log('Clicked Save!')
+      }, {
+        text: 'Log',
+        handler: () => {
+          console.log('Clicked Log. Do not Dismiss.');
+          return false;
+        }
+      }]
+    }
+  }
+
 }

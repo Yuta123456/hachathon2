@@ -1,15 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-button ion-button menuToggle (click)="goToProblemList()">
-      <ion-icon name="menu" ></ion-icon>
+      <ion-icon name="menu"></ion-icon>
     </ion-button>
     <ion-title id="title">
-      Today Problems
+      All Problems
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<!--toggleで、解いたか解いてないのかを管理できそう-->
+<div>
+  <h1 class="Usage">Usage</h1>
+  <p class="Usage">
+    このサイトは,AtCoderの問題の復習をするサイトです。問題を登録することで、自分がその問題を最後に解いた時間を一元管理できます。
+  </p>
+</div>
 <ion-content [fullscreen]="false">
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button (click)="goToNextPage()">
@@ -18,7 +22,7 @@
   </ion-fab>
   
   <div>
-    <ion-item *ngFor="let t of today" button=false [color]="ProblemColor(t)">
+    <ion-item *ngFor="let t of Problems" button=false [color]="ProblemColor(t)">
       <ion-checkbox slot="start" [(ngModel)]="t.checked" (ionChange)="ProblemMessage(t)"></ion-checkbox>
       <ion-button class="solve_button" href="{{t.url}}" size="large" slot="end" fill="solid" shape="round" >{{t.message}}</ion-button>
         
@@ -29,17 +33,16 @@
           <span class="problem_text">{{t.name}}</span>
         </li>
         <li>
+          <span class="problem_property">last_AC:</span>
+          <!--todo-->
+          <span class="problem_text">{{t.last_AC}}</span>
+        </li>
+        <li>
           <span class="problem_property">memo:</span>
           <!--todo-->
           <span class="problem_text">{{t.memo}}</span>
         </li>
-        <li>
-        <span class="problem_property">priority:</span>
-        <!--todo-->
-        <span class="problem_text">{{t.priority}}</span>
-        </li>
       </ul>
-      
     </ion-item>
   </div>
       
